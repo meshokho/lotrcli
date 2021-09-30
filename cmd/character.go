@@ -11,8 +11,10 @@ import (
 // characterCmd represents the character command
 var characterCmd = &cobra.Command{
 	Use:   "character",
-	Short: "Get random character info",
-	Long: `This command fetches a random phrase from LOTR using The One API`,
+	Short: "Get character info",
+	Long: `This command fetches an information about character. 
+	To specify character use --name flag.
+	If name is not specified, information about Gandalf will be shown.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		charName, _ := cmd.Flags().GetString("name")
 		if charName == "" {
@@ -107,7 +109,6 @@ func printCharData(charData Character) {
 	fmt.Println("Gender:	" 	+ charData.Gender)
 	fmt.Println("Hair:	" 	+ charData.Hair)
 	fmt.Println("Height:	" 	+ charData.Height)
-	fmt.Println("Race:	" 	+ charData.Race)
 	fmt.Println("Realm:	" 	+ charData.Realm)
 	fmt.Println("Spouse:	" 	+ charData.Spouse)
 	fmt.Println("Wiki:	" 	+ charData.Wiki)	
